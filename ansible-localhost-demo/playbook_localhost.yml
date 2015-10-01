@@ -1,0 +1,18 @@
+---
+- hosts: localhost
+  gather_facts: yes
+  vars: 
+  - osx_say_message1: Hello {{inventory_hostname}} learning about Ansible at macsysadmin 2015!
+  - osx_say_message2: And now we call Ansible tasks from an additional file.
+
+  tasks:
+  - debug: msg="{{ ansible_os_family }}"
+  - debug: msg="Inventory record '{{ inventory_hostname }}' is running locally on machine named '{{ ansible_hostname }}'"
+  
+  - name: say message
+    osx_say: msg="{{ osx_say_message1 }}" voice=Zarvox
+
+  - include: sub_task/more.yml
+  
+
+

@@ -1,0 +1,23 @@
+---
+- hosts: osx_target
+  vars: 
+   - osquery_vers: 1.5.3
+
+  tasks:
+  - name: install osquery
+    mac_pkg: pkg_name=osquery-{{osquery_vers}}
+             state=present
+             url=https://osquery-packages.s3.amazonaws.com/darwin/osquery-{{osquery_vers}}.pkg
+             archive_path='osquery-{{osquery_vers}}.pkg'
+    sudo: yes
+
+  - command: /usr/local/bin/osqueryi --version 
+    register: version
+
+  - debug: msg="{{ version.stdout}}"
+
+  - name: get OS facts with /usr/local/bin/osqueryi
+    command: /usr/local/bin/osqueryi --json "select * from os_version"
+    register: result
+
+  - debug: msg="{{ result.stdout|from_json }}"

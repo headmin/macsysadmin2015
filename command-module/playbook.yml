@@ -1,0 +1,9 @@
+---
+- hosts: osx_target
+
+  tasks:
+  - name: Set a Help URL for Managed Software Center.
+    command: defaults write /Library/Preferences/ManagedInstalls  {{ item }}
+    with_items:
+      - SoftwareRepoURL -string "http://munki.macadmin.me/munki_repo"
+      - HelpURL -string "http://macsysadmin.se/2015/Friday.html"

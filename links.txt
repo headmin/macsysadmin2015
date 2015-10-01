@@ -1,0 +1,43 @@
+## MacSysAdmin 2015 Ansible for #macadmins
+
+Below you'll find additional ressources to check out.
+
+### Ansible - Official Documentation
+
+Best Practices:
+[http://docs.ansible.com/ansible/playbooks\_best\_practices.html]
+
+### Presentations 
+
+#### JNUC 2014 
+Playbook Automation of JSS Infrastructure | JNUC 2014
+[https://youtu.be/3XKlxcZEJGI]
+
+###- Get started with Ansible
+
+Getting started with Ansible
+[http://www.slideshare.net/headmin/ansible-meetup-hamburg]
+
+[http://www.slideshare.net/robertreiz/ansible-40167296]
+
+[http://www.slideshare.net/SarahZelechoski/ansible-how-to-get-more-sleep-and-require-less-coffee]
+
+[https://www.digitalocean.com/community/tutorials/how-to-use-ansible-roles-to-abstract-your-infrastructure-environment]
+
+### Ansible 2.0 and advanced techniques
+[http://www.slideshare.net/bcoca/ansible-tips-tricks?related=1]
+[http://www.slideshare.net/jimi-c/v2-and-beyond]
+
+## Ansible Examples & workshops
+
+[https://github.com/bigpandaio/ansible-workshop]
+
+[https://github.com/geerlingguy/ansible-vagrant-examples]
+
+##Blog Ressources
+
+#### Ansible ad-hoc commands
+[https://thinkingmonster.wordpress.com/it-automation/386-2/ansible-ad-hoc-commands/]
+
+#### Ansible Roles
+[https://thinkingmonster.wordpress.com/it-automation/386-2/ansible-roles/]

@@ -1,0 +1,45 @@
+---
+# Demo for MacSysAdmin 2015
+- hosts: dockerhost
+  sudo: yes
+  vars:
+  - sal_display_name: MacSysAdmin 2015 Ansible Demo # change to: Sal 2 (thanks @grahamgilbert)
+  tasks:
+  - pip: name=docker-py version=1.2.2
+
+  #- shell: docker pull grahamgilbert/postgres
+
+  - name: clean fragments for grahamgilbert/postgres container
+    docker:
+      name: postgres-sal
+      image: grahamgilbert/postgres
+      state: absent
+
+  - name: clean fragments for macadmins/sal:2.0.1container
+    docker:
+      name: sal
+      image: macadmins/sal:2.0.1
+      state: absent
+
+  - name: run postgres-sal in docker container
+    shell: >
+      docker run -d --name="postgres-sal" \
+      -v /db:/var/lib/postgresql/data \
+      -e DB_NAME=sal \
+      -e DB_USER=admin \
+      -e DB_PASS=password \
+      --restart="always" \
+      grahamgilbert/postgres
+
+  - name: run sal 2.0.1 in docker container
+    shell: >
+      docker run -d --name="sal" \
+      -p 80:8000 \
+      --link postgres-sal:db \
+      -e DOCKER_SAL_DISPLAY_NAME="{{sal_display_name}}" \
+      -e ADMIN_PASS=pass \
+      -e DB_NAME=sal \
+      -e DB_USER=admin \
+      -e DB_PASS=password \
+      --restart="always" \
+      macadmins/sal:2.0.1
