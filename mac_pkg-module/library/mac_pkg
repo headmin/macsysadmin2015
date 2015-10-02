@@ -1,5 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
+## http://spencer.gibb.us/blog/2014/02/03/introducing-battleschool/
+## thanks spencer for providing this nice module
 
 DOCUMENTATION = '''
 ---
