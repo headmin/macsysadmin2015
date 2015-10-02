@@ -1,6 +1,6 @@
 #! /bin/bash
 #This snippet assume each "Host", "Hostname", "Port", "User" in separated line, and valid ssh config file.
-
+## unknown source - will look up for creator to give credits
 ssh_conf_to_ansible () {
 awk 'BEGIN{IGNORECASE=1}
      {gsub(/\s+/," ");
